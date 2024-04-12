@@ -9,7 +9,7 @@
         case 'POST':
             $datos = json_decode(file_get_contents('php://input'));
             if ($datos != NULL) {
-                if (Dueño::insert($datos->nombre, $datos->email, $datos->estado)) {
+                if (CRUD::insert($datos->nombre, $datos->email, $datos->estado)) {
                     http_response_code(200);
                 }
                 else {
@@ -24,7 +24,7 @@
         case 'PUT':
             $datos = json_decode(file_get_contents('php://input'));
             if ($datos != NULL) {
-                if (Dueño::update($datos->id, $datos->nombre, $datos->email, $datos->estado)) {
+                if (CRUD::update($datos->id, $datos->nombre, $datos->email, $datos->estado)) {
                     http_response_code(200);
                 }
                 else {
@@ -38,7 +38,7 @@
         
         case 'DELETE':
             if(isset($_GET['id'])){
-                if(Dueño::delete($_GET['id'])) {
+                if(CRUD::delete($_GET['id'])) {
                     http_response_code(200);
                 }
                 else {
