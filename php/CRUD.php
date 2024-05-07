@@ -59,7 +59,7 @@
         public static function update($id, $nombre, $email) {
             $db = new Connection();
             $query = "UPDATE dueño 
-            SET nombre='" . $nombre . "', email='" . $email . "' 
+            SET nombre='" . $nombre . "', email='" . $email . "'
             WHERE id=" . $id; 
             $db->query($query);
             if ($db->affected_rows) {

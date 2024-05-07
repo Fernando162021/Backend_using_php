@@ -24,7 +24,7 @@
         case 'PUT':
             $datos = json_decode(file_get_contents('php://input'));
             if ($datos != NULL) {
-                if (CRUD::update($datos->id, $datos->nombre, $datos->email, $datos->estado)) {
+                if (CRUD::update($datos->id, $datos->nombre, $datos->email)) {
                     http_response_code(200);
                 }
                 else {
